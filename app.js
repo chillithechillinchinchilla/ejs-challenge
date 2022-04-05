@@ -15,18 +15,33 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-
+// Home Page
 app.get("/", function(req,res){
-
   res.render("home", {startingContent: homeStartingContent});
-
 });
 
+// About Page
+app.get("/about", function(req,res){
+    res.render("about",{aboutContent: aboutContent});
+});
 
+// Contacts Page
+app.get("/contact", function(req,res){
+  res.render("contact", {contactContent: contactContent});
+});
 
+// Compose page, hidden
+app.get("/compose", function(req,res){
+  res.render("compose");
+});
 
-
-
+// Post for new blog entry
+app.post("/compose", function(req,res){
+  const post = {
+    title: req.body.postTitle,
+    body: req.body.postBody
+  };
+});
 
 
 
