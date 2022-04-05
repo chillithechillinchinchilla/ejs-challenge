@@ -58,6 +58,13 @@ app.post("/compose", function(req, res) {
 });
 
 
+app.get("/posts/:postTitle", function(req,res){
+  console.log(req.params.postTitle);
+  res.render("home", {
+    startingContent: homeStartingContent,
+    postsContent: posts
+  });
+});
 
 
 // Listen on port 3000, Local
