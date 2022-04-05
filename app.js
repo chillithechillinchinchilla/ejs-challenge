@@ -23,7 +23,8 @@ let posts = [];
 // Home Page
 app.get("/", function(req, res) {
   res.render("home", {
-    startingContent: homeStartingContent
+    startingContent: homeStartingContent,
+    postsContent: posts
   });
 });
 
@@ -46,7 +47,7 @@ app.get("/compose", function(req, res) {
   res.render("compose");
 });
 
-// Post for new blog entry using /compose page
+// Post new blog entry using '/compose' page
 app.post("/compose", function(req, res) {
   const post = {
     title: req.body.postTitle,
@@ -59,7 +60,7 @@ app.post("/compose", function(req, res) {
 
 
 
-
+// Listen on port 3000, Local
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
